@@ -1,0 +1,64 @@
+$ laravel new project-name
+O via composer
+$ composer create-project --prefer-dist laravel/laravel project-name
+
+
+
+cd /path-to-project/project-name
+$ php artisan make:migration create_tasks_table --create=tasks
+
+    public function up()
+    {
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->unsignedInteger('user_id');
+            $table->text('description');
+            $table->timestamps();
+        });
+    }
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=YOUR-DATABASE-NAME
+DB_USERNAME=DATABASE-USERNAME
+DB_PASSWORD=DATABASE-USER-PASSWORD
+
+
+
+
+$ php artisan migrate
+$ php artisan make:auth
+
+
+
+Use el siguiente comando de su terminal para generar el Modelo y el Controlador de recursos para la tarea:
+$ php artisan make:model Task -r
+
+
+
+
+namespace App;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class Task extends Model
+{
+    protected $fillable = [
+        'name',
+        'user_id',
+        'description',
+    ];
+}
+
+
+
+TaskController
+public function __construct()
+{
+    $this->middleware('auth');
+}
+
+
+Route::resource('/task', 'TaskController');

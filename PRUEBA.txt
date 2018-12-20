@@ -1,0 +1,19 @@
+
+        // $contents_course_object = response()->json([
+        //     'contents_course'    => $contents_course, 'name_course' => $name_course
+        // ], 200);
+        
+        // $contents_course_array = json_encode($contents_course_object);
+        // $contents_course_array = json_decode($contents_course_array, true);
+
+        
+        // return $contents_course_array;
+
+
+        Si alcanza time verificaar dandole el nombre del usuario y el nombre del curso
+
+
+
+        METER DATOS AL SERVIDOR
+
+        insert into categories values(1,'Backend','Backend','','');
